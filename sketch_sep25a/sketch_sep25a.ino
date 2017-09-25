@@ -1,5 +1,5 @@
 #include <math.h>
-#define SENSOR_PIN A0
+#define SENSOR_PIN 0
 
 int convertTab[150][2] = {
   {1, -87},
@@ -38,7 +38,7 @@ int convertTab[150][2] = {
   {330, 7},
   {340, 8},
   {350, 9},
-  {360, 10},                                                                                  
+  {360, 10},
   {370, 11},
   {380, 12},
   {390, 13},
@@ -117,7 +117,7 @@ void loop() {
   int count = 0;
   int value = analogRead(SENSOR_PIN);
   while(convertTab[count][0] < value)
-    value++;
+    count++;
   Serial.print(value);
   Serial.print(" ");
   Serial.println(convertTab[count][1]);
